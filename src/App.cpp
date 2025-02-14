@@ -119,6 +119,8 @@ void App::predict()
         return;
     }
 
+    X.print("\nEntradas de prueba: ");
+
     arma::mat output = nn.predict(X);
-    std::cout << "Predicciones:\n" << output << std::endl;
+    std::cout << "\nPredicciones:\n" << output << std::endl;
 }

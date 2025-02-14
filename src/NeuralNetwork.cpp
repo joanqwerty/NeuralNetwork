@@ -67,6 +67,7 @@ void NeuralNetwork::backpropagation(const arma::mat& X, const arma::mat& y)
 
 void NeuralNetwork::train(const arma::mat& X, const arma::mat& y, int epochs)
 {
+    std::cout << "\n===============================\n";
     for (int epoch = 0; epoch < epochs; epoch++)
     {
         forward(X);
@@ -78,6 +79,7 @@ void NeuralNetwork::train(const arma::mat& X, const arma::mat& y, int epochs)
             std::cout << "Epoch " << epoch << " Loss: " << loss << std::endl;
         }
     }
+    std::cout << "===============================\n";
 }
 
 arma::mat NeuralNetwork::predict(const arma::mat& X)
@@ -117,8 +119,7 @@ void NeuralNetwork::saveModel(const std::string& filename)
     std::ofstream file(filename);
     file << model.dump(4);  // Guarda con indentación de 4 espacios
     file.close();
-
-    std::cout << "Modelo guardado en " << filename << std::endl;
+    std::cout << "\nModelo guardado en " << filename << std::endl;
 }
 
 bool NeuralNetwork::loadModel(const std::string& filename)
