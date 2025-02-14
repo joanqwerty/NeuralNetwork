@@ -17,7 +17,8 @@ void App::start()
         std::cout << "\n--- Menu ---\n";
         std::cout << "1. Entrenar el modelo\n";
         std::cout << "2. Hacer una predicción\n";
-        std::cout << "3. Salir\n";
+        std::cout << "3. Eliminar Modelo\n";
+        std::cout << "4. Salir\n";
         std::cout << "\nSeleccione una opción: ";
         std::cin >> option;
 
@@ -29,7 +30,21 @@ void App::start()
         case 2:
             predict();
             break;
+
         case 3:
+            std::cout << "¿Seguro que quieres eliminar '" << modelFile << "'? (s/n): ";
+            char response;
+            std::cin >> response;
+
+            if(response != 's' && response != 'S') {
+                std::cout << "Operación cancelada.\n";
+                break;
+            }
+
+
+            nn.deleteModel(modelFile);
+            break;
+        case 4:
             std::cout << "Saliendo...\n";
             break;
         default:
@@ -37,7 +52,7 @@ void App::start()
             break;
         }
     }
-    while (option != 3);
+    while (option != 4);
 
 }
 

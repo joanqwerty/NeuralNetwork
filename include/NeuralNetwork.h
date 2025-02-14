@@ -30,4 +30,5 @@ public:
     arma::mat jsonToMatrix(const json& j);
     void saveModel(const std::string& filename);
     bool loadModel(const std::string& filename);
+    void deleteModel(const std::string& fiilename);
 };

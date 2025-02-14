@@ -29,6 +29,7 @@ NeuralNetwork::NeuralNetwork(int inputNeurons, int hiddenNeurons, int outputNeur
 void NeuralNetwork::setHiddenNeurons(int hiddenNeurons)
 {
     this-> hiddenNeurons = hiddenNeurons;
+    initWeights();
 }
 
 void NeuralNetwork::setLearningRate(double learningRate)
@@ -143,3 +144,20 @@ bool NeuralNetwork::loadModel(const std::string& filename)
     return true;
 }
 
+void NeuralNetwork::deleteModel(const std::string& filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+    {
+        std::cout << "No se encontró el modelo\n";
+        return;
+    }
+
+    if (std::remove(filename.c_str()) != 0)
+    {
+        std::perror("Error al eliminar el archivo");
+        return;
+    }
+
+    std::cout << "Archivo eliminado correctamente.\n";
+}
