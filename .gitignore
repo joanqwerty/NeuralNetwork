@@ -1,0 +1,33 @@
+# Archivos y carpetas generadas por CMake
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+
+# Archivos binarios y ejecutables
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+*.exe
+*.out
+
+# Archivos de depuración
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Archivos específicos de IDEs y editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
